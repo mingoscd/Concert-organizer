@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-sm-push-3"><h1>Today concerts</h1></div>
+		<div class="col-sm-3 col-sm-push-5"><h2>Later concerts</h2></div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8">		
+			<ul class="list-group">
+				<% if @concerts_today.count > 0 %>
+					<% @concerts_today.each do |concert| %>
+						<li class="list-group-item">
+							<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
+							<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-sm-4">
+			<ul class="list-group">
+				<% if @concerts_later.count > 0 %>
+					<% @concerts_later.each do |concert| %>
+						<li class="list-group-item">
+							<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
+							<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		</div>		
+	</div>
+</div>

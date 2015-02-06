@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="col-sm-4 col-sm-push-3">
+		<h1>Concert Details</h1>
+	</div>
+	<div class="col-sm-3">
+		<div class="btn-group concert-details-buttons col-sm-push-5 pull-right" role="group">
+		  	<%= link_to('Edit', edit_concert_path(@concert.id), class: "btn btn-info" ) %>
+			<%= link_to('Delete', concert_path(@concert.id), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" )%>
+		</div>
+	</div>
+</div>
+
+<div class="container">	
+	<h2><%= @concert.band %></h2>
+	<table class="table table-striped">
+		<tr><td>City</td><td><%= @concert.city %></td></li>
+		<tr><td>Venue</td><td><%= @concert.venue %></td></li>
+		<tr><td>Date</td><td><%= @concert.date.strftime("%D") %></td></li>
+		<tr><td>Price</td><td><%= @concert.price %></td></li>
+		<% unless @concert.description.nil? %>
+			<tr><td>Description</td><td><%= @concert.description %></td></li>
+		<% end %>
+	</table>
+</div>

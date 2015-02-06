@@ -1,0 +1,55 @@
+<% if @concert.errors.any? %>
+	<ul>
+		<% @concert.errors.full_messages.each do |error_msg| %>
+			<li><%= error_msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @concert do |f| %>
+	<div class="container">
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-headphones"></span>
+			</span>
+			<%= f.text_field :band, class: "form-control", placeholder: "Band" %>	
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-home"></span>
+			</span>
+			<%= f.text_field :city, class: "form-control", placeholder: "City"  %>	
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-map-marker"></span>
+			</span>
+			<%= f.text_field :venue, class: "form-control", placeholder: "Venue"  %>	
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-shopping-cart"></span>
+			</span>
+			<%= f.number_field :price, class: "form-control", placeholder: "Price"  %>	
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-calendar"></span>
+			</span>
+			<%= f.date_field :date, class: "form-control", placeholder: "Date"  %>	
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">
+				<span class="glyphicon glyphicon-list-alt"></span>
+			</span>
+			<%= f.text_area :description, class: "form-control", placeholder: "Description", row: 7  %>	
+		</div>
+		<br>
+		<%= f.submit "Save", class: "btn btn-primary btn-lg col-sm-4 col-sm-push-4" %>		
+	</div>
+<% end %>

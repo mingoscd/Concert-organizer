@@ -1,0 +1,14 @@
+<% if flash[:alert] %>
+	<div class="alert alert-danger" role="alert">
+		<div class="container">
+			<%= flash[:alert] %>	
+		</div>
+	</div>
+<% end %>
+
+<div class="container">
+	<h1 class="col-sm-4 col-sm-push-4">Edit Concert</h1>	
+</div>
+<br>
+
+<%= render 'form' %>

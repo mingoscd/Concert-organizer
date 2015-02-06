@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+	<div class="alert alert-success" role="alert">
+		<div class="container">
+			<%= flash[:notice] %>	
+		</div>
+	</div>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-sm-push-1"><h1>List of concerts</h1></div>
+		<a href="/concerts/new" class="btn btn-default col-sm-2 col-sm-push-1" style="margin-top:22px">
+			<span class="glyphicon glyphicon-plus"></span><span>Create new Concert</span>	
+		</a>
+	</div>
+</div>
+
+<div class="container">
+	<ul class="col-sm-9 list-group">
+		<% if @concerts.count > 0 %>
+			<% @concerts.each do |concert| %>
+				<li class="list-group-item">
+					<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
+					<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
