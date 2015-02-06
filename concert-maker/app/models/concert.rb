@@ -1,4 +1,6 @@
 class Concert < ActiveRecord::Base
+	has_many :comments, dependent: :delete_all
+
 	validates :band, :city, :venue, presence: true
 	validate :date_valid
 	validates :price, presence: true, numericality: true

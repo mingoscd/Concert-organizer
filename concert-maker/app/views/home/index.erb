@@ -20,16 +20,34 @@
 			</ul>
 		</div>
 		<div class="col-sm-4">
-			<ul class="list-group">
-				<% if @concerts_later.count > 0 %>
-					<% @concerts_later.each do |concert| %>
-						<li class="list-group-item">
-							<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
-							<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
-						</li>
+			<div class="row">
+				<ul class="list-group">
+					<% if @concerts_later.count > 0 %>
+						<% @concerts_later.each do |concert| %>
+							<li class="list-group-item">
+								<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
+								<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
+							</li>
+						<% end %>
 					<% end %>
-				<% end %>
-			</ul>
+				</ul>
+			</div>
+			<div class="row">
+				<h2 class=" col-sm-10 col-sm-push-2">Trending Concerts</h2>
+			</div>
+				
+			<div class="row">
+				<ul class="list-group">
+					<% if @concerts_trending.count > 0 %>
+						<% @concerts_trending.each do |concert| %>
+							<li class="list-group-item">
+								<%= link_to( concert.band, concert_path(concert.id), class: "lead text-capitalize") %>
+								<span class="concert-place pull-right"><%= concert.venue %>, <%= concert.city %></span>
+							</li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
 		</div>		
 	</div>
 </div>

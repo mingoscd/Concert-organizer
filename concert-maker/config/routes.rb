@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
   get '/' => 'home#index'
-  resources :concerts
+  resources :concerts do 
+  	resources :comments
+  end
 end
